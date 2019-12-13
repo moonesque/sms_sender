@@ -70,7 +70,11 @@ POST /login/
   "password": "passw0rd"
 }
 ```
-Returns the authentication token.
+Returns the authentication token. The token must be used as header with following
+form:
+```
+Authorization: Token <token>
+```
 
 Example request for editing user data:
 ```
