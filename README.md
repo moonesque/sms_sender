@@ -13,6 +13,14 @@ Now install the dependencies via `pip`
 pip install -r requirements.txt
 ```
 
+Run the migrations
+```
+./manage.py migrate
+```
+
+The database is sqlite3 but it can be simply replaced by more sophisticated
+database engines such as Postgres.
+
 To run the server
 ```
 cd sms_sender
