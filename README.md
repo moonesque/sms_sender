@@ -15,6 +15,7 @@ pip install -r requirements.txt
 
 Run the migrations
 ```
+cd sms_sender
 ./manage.py migrate
 ```
 
@@ -23,7 +24,6 @@ database engines such as Postgres.
 
 To run the server
 ```
-cd sms_sender
 ./manage.py runserver
 ```
 
