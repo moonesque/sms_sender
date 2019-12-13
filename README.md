@@ -60,6 +60,11 @@ POST /register/
 }
 ```
 Returns an authentication token to be used for subsequent requests.
+```
+{
+  "token": "0e07b32ee15a3e5d6c0a0c14df1a6cf0f2e255b6"
+}
+```
 
 Example request for login:
 ```
@@ -70,10 +75,16 @@ POST /login/
   "password": "passw0rd"
 }
 ```
-Returns the authentication token. The token must be used as header with following
-form:
+Returns the authentication token.
 ```
-Authorization: Token <token>
+{
+  "token": "0e07b32ee15a3e5d6c0a0c14df1a6cf0f2e255b6"
+}
+```
+
+The token must be used as header with following form:
+```
+Authorization: Token 0e07b32ee15a3e5d6c0a0c14df1a6cf0f2e255b6
 ```
 
 Example request for editing user data:
@@ -85,6 +96,15 @@ PATCH /users/foo/
 }
 ```
 Changes the user (company) name.
+```
+{
+  "name": "yektanet",
+  "username": "foo",
+  "address": "",
+  "est_date": null,
+  "email": ""
+}
+```
 
 Example request for creating a contact:
 ```
@@ -95,33 +115,51 @@ POST /contacts/
   "phone": "+989352140000"
 }
 ```
+Returns the created contact along with its contact id (`contact_id`).
+```
+{
+  "name": "contact",
+  "phone": "+989352140000",
+  "contact_id": "c-2748232e522a4eba"
+}
+```
 
 Example request to get all contacts:
 ```
 GET /contacts/
-
+```
+Returns
+```
 [
   {
     "name": "contact",
     "phone": "+989352140000",
-    "contact_id": "c-f94fbd6103ba4832"
+    "contact_id": "c-2748232e522a4eba"
   }
 ]
 ```
-Returns the created contact along with its contact id (`contact_id`).
 
 Example request for creating a contact group:
 ```
 POST /contact_groups/
 
 {
-  "name": "contact",
+  "name": "contact-group",
   "contacts": [
-    "c-f94fbd6103ba4832"
+    "c-2748232e522a4eba"
   ]
 }
 ```
 Returns the created contact group along with its group id (`group_id`).
+```
+{
+  "name": "contact-group",
+  "contacts": [
+    "c-2748232e522a4eba"
+  ],
+  "group_id": "g-e832031180964cd2"
+}
+```
 
 A user can send an SMS using the `/send_sms/` endpoint. This endpoint takes a
 message and a list of contacts and contact groups.
@@ -132,8 +170,8 @@ POST /send_sms/
 
 {
   "contacts": [
-    "c-f94fbd6103ba4832",
-    "g-a94adc6153ba4739"
+    "c-2748232e522a4eba",
+    "g-e832031180964cd2"
   ],
   "message": "Hello world!"
 }
