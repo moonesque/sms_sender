@@ -1,4 +1,4 @@
-# SMS Delivery system
+# SMS Delivery System
 This project implements the task requested by YektaNet in Python, using Django and Django REST Framework.
 
 ## Setup
