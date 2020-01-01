@@ -1,5 +1,5 @@
-# YektaNet Task
-This project implements the requested test in Python using Django and Django REST Framework.
+# SMS Delivery system
+This project implements the task requested by YektaNet in Python, using Django and Django REST Framework.
 
 ## Setup
 To setup the project navigate to the root of the project and create a virtualenv.
